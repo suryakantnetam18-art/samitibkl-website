@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आदिम जाति सेवा सहकारी समिति मर्यादित बाकुलवाही</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans Devanagari', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); }
+        .search-gradient { background: linear-gradient(135deg, #047857 0%, #059669 100%); }
+        .custom-logo {
+            width: 65px; height: 65px; border-radius: 50%; background: white; position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid #059669;
+        }
+        .logo-sun { width: 24px; height: 24px; background: #f59e0b; border-radius: 50%; position: absolute; top: 12px; left: 16px; z-index: 1; }
+        .logo-field-green { width: 70px; height: 70px; background: #15803d; border-radius: 50%; position: absolute; bottom: -28px; right: -8px; transform: rotate(-25deg); }
+        .logo-field-light { width: 50px; height: 50px; background: #4ade80; border-radius: 50%; position: absolute; bottom: -18px; left: 2px; transform: rotate(-10deg); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900" onload="initSystem()">
+
+    <!-- TOP HEADER BAR -->
+    <div class="bg-emerald-950 text-emerald-200 py-2 px-4 text-xs font-semibold hidden md:block border-b border-emerald-900">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-location-dot text-amber-400 mr-1.5"></i> ग्राम-कोचवाही, पोस्ट-बाकुलवाही, नारायणपुर (छ.ग.)</span>
+                <span><i class="fa-solid fa-phone-volume text-amber-400 mr-1.5"></i> प्रबंधक हेल्पलाईन: +91 9407740808</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="bg-emerald-900 text-amber-300 px-3 py-1 rounded-full text-[11px] font-bold shadow-inner">पंजीयन क्र: 26 (दिनांक: 10.11.2020)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAV HEADER -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3.5 mb-3 lg:mb-0">
+                <div class="custom-logo shrink-0"><div class="logo-sun"></div><div class="logo-field-light"></div><div class="logo-field-green"></div></div>
+                <div>
+                    <h1 class="text-lg md:text-xl font-black text-emerald-900 tracking-tight leading-tight">आदिम जाति सेवा सहकारी समिति मर्यादित बाकुलवाही</h1>
+                    <p class="text-xs font-bold text-slate-500 mt-0.5"><span class="bg-emerald-100 text-emerald-800 text-[10px] uppercase px-2 py-0.5 rounded font-extrabold mr-1.5">समिति कोड: 26</span> जिला: नारायणपुर (छत्तीसगढ़)</p>
+                </div>
+            </div>
+            <nav class="flex flex-wrap justify-center items-center gap-1 md:gap-2 text-xs md:text-sm font-bold text-slate-700">
+                <a href="#home" class="hover:text-emerald-700 px-3 py-2 rounded-lg transition">मुख्य पृष्ठ</a>
+                <a href="#search-section" class="hover:text-emerald-700 px-3 py-2 rounded-lg transition text-emerald-800 bg-emerald-50"><i class="fa-solid fa-id-card mr-1 text-emerald-600"></i> किसान डिटेल जाँच</a>
+                <a href="#stock" class="hover:text-emerald-700 px-3 py-2 rounded-lg transition text-amber-800 font-black"><i class="fa-solid fa-chart-bar mr-1"></i> खाद, बीज व लिक्विड रिपोर्ट</a>
+                <a href="#downloads" class="hover:text-emerald-700 px-3 py-2 rounded-lg transition"><i class="fa-solid fa-file-pdf mr-1 text-red-600"></i> फॉर्म</a>
+                <a href="#gallery" class="hover:text-emerald-700 px-3 py-2 rounded-lg transition"><i class="fa-solid fa-images mr-1"></i> गैलरी</a>
+                <button onclick="openLoginModal()" class="ml-1 bg-slate-900 hover:bg-slate-800 text-white px-3.5 py-2 rounded-xl flex items-center shadow transition text-xs font-bold">
+                    <i class="fa-solid fa-lock mr-1.5 text-amber-400"></i> लॉगिन
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MASTER OFFICE DASHBOARD -->
+    <section id="office-dashboard" class="hidden py-12 bg-emerald-950 border-b-4 border-amber-500 text-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="bg-white text-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl border border-emerald-300 space-y-8">
+                <div class="flex justify-between items-center border-b pb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-emerald-800 text-amber-400 p-3 rounded-2xl text-2xl"><i class="fa-solid fa-user-shield"></i></div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-black text-slate-900">समिति मास्टर एडमिनिस्ट्रेटर डैशबोर्ड</h3>
+                            <p class="text-xs text-emerald-700 font-bold">डेटा सक्रिय है</p>
+                        </div>
+                    </div>
+                    <button onclick="logoutOffice()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow"><i class="fa-solid fa-power-off mr-1.5"></i> लॉग आउट</button>
+                </div>
+
+                <!-- खाद, बीज व लिक्विड रिपोर्ट अपडेट करने का सेक्शन -->
+                <div class="bg-amber-50 border-2 border-amber-300 p-5 rounded-2xl shadow-sm space-y-4">
+                    <h4 class="font-black text-amber-950 text-sm flex items-center"><i class="fa-solid fa-pen-to-square mr-2 text-amber-700 text-base"></i> खाद / बीज / लिक्विड स्टॉक प्रतिदिन अपडेट करें</h4>
+                    <div class="grid md:grid-cols-3 gap-3 text-xs">
+                        <div>
+                            <label class="font-bold text-slate-700 block mb-1">कैटगरी चुनें:</label>
+                            <select id="update-category" onchange="updateItemDropdown()" class="w-full border p-2.5 rounded-xl bg-white font-bold">
+                                <option value="khad">रासायनिक खाद (टन में)</option>
+                                <option value="beej">बीज (क्विंटल में)</option>
+                                <option value="liquid">लिक्विड खाद (नग में)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-bold text-slate-700 block mb-1">आइटम का नाम चुनें:</label>
+                            <select id="update-item-select" onchange="checkCustomItemInput()" class="w-full border p-2.5 rounded-xl bg-white font-bold"></select>
+                            <input type="text" id="update-item-custom" class="w-full border p-2.5 rounded-xl bg-white font-bold mt-2 hidden" placeholder="नया नाम यहाँ लिखें">
+                        </div>
+                        <div>
+                            <label class="font-bold text-slate-700 block mb-1">भण्डारण (New Stock):</label>
+                            <input type="number" step="any" id="update-bhandaran" class="w-full border p-2.5 rounded-xl bg-white font-bold" placeholder="नई मात्रा">
+                        </div>
+                        <div>
+                            <label class="font-bold text-slate-700 block mb-1">वितरण (Distributed):</label>
+                            <input type="number" step="any" id="update-vitaran" class="w-full border p-2.5 rounded-xl bg-white font-bold" placeholder="वितरित मात्रा">
+                        </div>
+                        <div>
+                            <label class="font-bold text-slate-700 block mb-1">प्रारंभिक (Opening):</label>
+                            <input type="number" step="any" id="update-prarambhic" class="w-full border p-2.5 rounded-xl bg-white font-bold" value="0">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="addNewOrUpdateReportItem()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-black py-2.5 rounded-xl shadow">रिपोर्ट अपडेट करें</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIRECT PDF & GALLERY UPLOAD SECTION -->
+                <div class="grid md:grid-cols-2 gap-6 text-xs">
+                    <div class="bg-slate-50 border p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-slate-800"><i class="fa-solid fa-file-pdf mr-1 text-red-600"></i> नया नोटिस / फॉर्म PDF फाइल जोड़ें</h4>
+                        <input type="text" id="dash-notice-title" class="w-full border p-2.5 rounded-xl bg-white font-bold" placeholder="फॉर्म शीर्षक (जैसे: धान पंजीयन फॉर्म)">
+                        <input type="file" id="dash-notice-file" accept="application/pdf" class="w-full bg-white border p-1.5 rounded-xl">
+                        <button onclick="uploadNoticePdfFile()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-4 py-2.5 rounded-xl w-full shadow">PDF अपलोड करें</button>
+                    </div>
+                    <div class="bg-slate-50 border p-5 rounded-2xl space-y-3">
+                        <h4 class="font-bold text-slate-800"><i class="fa-solid fa-images mr-1 text-sky-600"></i> गैलरी फोटो जोड़ें</h4>
+                        <input type="text" id="dash-gallery-title" class="w-full border p-2.5 rounded-xl bg-white font-bold" placeholder="फोटो शीर्षक">
+                        <input type="file" id="dash-gallery-img" accept="image/*" class="w-full bg-white border p-1.5 rounded-xl">
+                        <button onclick="uploadNewGalleryImage()" class="bg-sky-700 hover:bg-sky-800 text-white font-bold px-4 py-2.5 rounded-xl w-full shadow">गैलरी फोटो जोड़ें</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-gradient text-white py-16 px-4 relative overflow-hidden">
+        <div class="container mx-auto max-w-5xl text-center relative z-10">
+            <span class="bg-amber-500 text-slate-950 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-md">
+                <i class="fa-solid fa-award mr-1"></i> सहकारिता से समृद्धि - छत्तीसगढ़ शासन
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tight">
+                किसानों एवं आदिवासियों के <span class="text-amber-400 underline decoration-amber-500/50">आर्थिक उत्थान</span> का मजबूत केंद्र
+            </h2>
+            <p class="text-sm md:text-base text-emerald-100 max-w-2xl mx-auto mb-8 font-medium">
+                ग्राम-कोचवाही, पोस्ट-बाकुलवाही समिति क्षेत्र, जिला-नारायणपुर | रासायनिक खाद, बीज एवं लिक्विड खाद वितरण की संपूर्ण रिपोर्ट।
+            </p>
+        </div>
+    </section>
+
+    <!-- KISAN DETAIL SEARCH -->
+    <section id="search-section" class="py-14 bg-slate-100 border-b">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="search-gradient rounded-3xl p-6 md:p-10 shadow-2xl text-white relative overflow-hidden">
+                <div class="text-center mb-6 relative z-10">
+                    <span class="bg-amber-400 text-slate-950 text-[11px] font-black px-3 py-1 rounded-full uppercase shadow">डिजिटल सुविधा पोर्टल</span>
+                    <h3 class="text-2xl md:text-3xl font-black mt-2">किसान अपनी डिटेल व टोकन स्थिति देखें</h3>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 relative z-10">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-user-pen absolute left-4 top-3.5 text-slate-400"></i>
+                        <input type="text" id="search-input-box" onkeypress="if(event.key === 'Enter') searchFarmerData();" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white text-slate-900 font-bold text-sm shadow-inner focus:outline-none" placeholder="नाम, कोड या गाँव लिखें">
+                    </div>
+                    <button onclick="searchFarmerData()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-8 py-3.5 rounded-2xl text-sm shadow-xl transition flex items-center justify-center gap-2 shrink-0">
+                        <i class="fa-solid fa-magnifying-glass"></i> खोजें
+                    </button>
+                </div>
+                <div id="search-result-box" class="mt-6 hidden relative z-10 bg-white text-slate-900 p-6 rounded-2xl shadow-2xl border-2 border-amber-400"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STOCK TABLES -->
+    <section id="stock" class="py-12 bg-white border-b">
+        <div class="container mx-auto px-4 max-w-5xl space-y-10">
+            <div class="text-center">
+                <span class="bg-emerald-100 text-emerald-900 text-xs font-black px-3 py-1 rounded-full">दिनांक:- <span id="current-live-date"></span></span>
+                <h3 class="text-2xl font-black text-slate-900 mt-2">समिति स्टॉक एवं वितरण रिपोर्ट</h3>
+            </div>
+
+            <!-- 1. रासायनिक खाद -->
+            <div class="bg-white rounded-3xl shadow-xl border overflow-hidden">
+                <div class="bg-emerald-900 text-white p-4 font-black text-sm flex justify-between items-center">
+                    <span><i class="fa-solid fa-seedling mr-2 text-amber-400"></i> रासायनिक खाद की जानकारी (टन में)</span>
+                    <span class="text-xs bg-emerald-800 px-2.5 py-1 rounded">पंजीयन नं: 26</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center text-xs md:text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 font-black text-slate-800 border-b">
+                                <th class="p-3 border-r">क्रमांक</th>
+                                <th class="p-3 border-r">समिति का नाम</th>
+                                <th class="p-3 border-r text-left">खाद का नाम</th>
+                                <th class="p-3 border-r">प्रारंभिक</th>
+                                <th class="p-3 border-r">भण्डारण</th>
+                                <th class="p-3 border-r">योग</th>
+                                <th class="p-3 border-r">वितरण</th>
+                                <th class="p-3">शेष</th>
+                            </tr>
+                        </thead>
+                        <tbody id="khad-tbody" class="divide-y font-medium text-slate-700"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2. बीज -->
+            <div class="bg-white rounded-3xl shadow-xl border overflow-hidden">
+                <div class="bg-blue-900 text-white p-4 font-black text-sm">
+                    <i class="fa-solid fa-wheat-awn mr-2 text-amber-400"></i> बीज की जानकारी (क्विंटल में)
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center text-xs md:text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 font-black text-slate-800 border-b">
+                                <th class="p-3 border-r">क्रमांक</th>
+                                <th class="p-3 border-r">समिति का नाम</th>
+                                <th class="p-3 border-r text-left">बीज का नाम</th>
+                                <th class="p-3 border-r">प्रारंभिक</th>
+                                <th class="p-3 border-r">भण्डारण</th>
+                                <th class="p-3 border-r">योग</th>
+                                <th class="p-3 border-r">वितरण</th>
+                                <th class="p-3">शेष</th>
+                            </tr>
+                        </thead>
+                        <tbody id="beej-tbody" class="divide-y font-medium text-slate-700"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3. लिक्विड खाद -->
+            <div class="bg-white rounded-3xl shadow-xl border overflow-hidden">
+                <div class="bg-amber-800 text-white p-4 font-black text-sm">
+                    <i class="fa-solid fa-flask mr-2 text-yellow-300"></i> लिक्विड खाद की जानकारी (नग में)
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center text-xs md:text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 font-black text-slate-800 border-b">
+                                <th class="p-3 border-r">क्रमांक</th>
+                                <th class="p-3 border-r">समिति का नाम</th>
+                                <th class="p-3 border-r text-left">लिक्विड का नाम</th>
+                                <th class="p-3 border-r">प्रारंभिक</th>
+                                <th class="p-3 border-r">भण्डारण</th>
+                                <th class="p-3 border-r">योग</th>
+                                <th class="p-3 border-r">वितरण</th>
+                                <th class="p-3">शेष</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liquid-tbody" class="divide-y font-medium text-slate-700"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOADS & GALLERY -->
+    <section id="downloads" class="py-12 bg-slate-50 border-b">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-8"><h3 class="text-2xl font-black text-slate-900">महत्वपूर्ण फॉर्म डाउनलोड</h3></div>
+            <div id="custom-forms-container" class="grid md:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-12 bg-white border-b">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-8"><h3 class="text-2xl font-black text-slate-900">समिति गैलरी</h3></div>
+            <div id="dynamic-gallery-container" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl border">
+            <div class="bg-slate-900 text-white p-5 text-center"><h4 class="font-black text-base">समिति एडमिन लॉगिन पैनल</h4></div>
+            <div class="p-6 space-y-4 text-xs">
+                <div id="login-error" class="hidden text-xs bg-red-50 text-red-700 p-3 rounded-xl border font-bold">❌ गलत यूज़र आईडी या पासवर्ड!</div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">यूज़र आईडी:</label>
+                    <input type="text" id="username" class="w-full border p-3 text-sm rounded-xl bg-slate-50" placeholder="ID">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">पासवर्ड:</label>
+                    <input type="password" id="password" class="w-full border p-3 text-sm rounded-xl bg-slate-50" placeholder="Password">
+                </div>
+                <button onclick="checkOfficeLogin()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black py-3 rounded-xl text-sm shadow">प्रवेश करें</button>
+                <button onclick="closeLoginModal()" class="w-full text-xs text-slate-500 font-bold text-center block mt-2">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-8 text-center text-xs space-y-2 border-t border-slate-800">
+        <p class="font-bold text-slate-200 text-sm">आदिम जाति सेवा सहकारी समिति मर्यादित बाकुलवाही (पंजीयन क्र: 26)</p>
+        <p>© 2026 सर्वाधिकार सुरक्षित | ग्राम-कोचवाही, पोस्ट-बाकुलवाही, जिला-नारायणपुर (छत्तीसगढ़)</p>
+    </footer>
+
+    <!-- SCRIPT DATA & LOGIC -->
+    <script>
+        const DEFAULT_FARMERS = [
+            { center: "बाकुलवाही", village: "बाकुलवाही", code: "TF4607102303830", name: "Rainu Ram", fname: "Dular Singh", totalLand: "1.20", bank: "Jskb", branch: "Narayanpur" },
+            { center: "कुकड़ाझोर", village: "मेटाडोंगरी", code: "TF4628112507160", name: "Ramsingh Pujari", fname: "Panku Ram", totalLand: "0.58", bank: "Jskb", branch: "Narayanpur" }
+        ];
+
+        const DEFAULT_KHAD = [
+            { name: "यूरिया", prarambhic: 0, bhandaran: 151.065, vitaran: 151.065 },
+            { name: "सुपर फास्फेट", prarambhic: 11.9, bhandaran: 0, vitaran: 11.9 },
+            { name: "डीएनपीपी", prarambhic: 0, bhandaran: 90, vitaran: 90 },
+            { name: "एनपीपीके", prarambhic: 0, bhandaran: 0, vitaran: 0 },
+            { name: "पोटाश", prarambhic: 0, bhandaran: 30, vitaran: 30 }
+        ];
+
+        const DEFAULT_BEEJ = [
+            { name: "IR64", prarambhic: 0, bhandaran: 34.5, vitaran: 34.5 },
+            { name: "MTU11010", prarambhic: 0, bhandaran: 135, vitaran: 123 },
+            { name: "MTU1153", prarambhic: 0, bhandaran: 20.1, vitaran: 20.1 }
+        ];
+
+        const DEFAULT_LIQUID = [
+            { name: "नैनो डीएनपीपी", prarambhic: 0, bhandaran: 168, vitaran: 168 }
+        ];
+
+        function initSystem() {
+            if(!localStorage.getItem('bakul_farmers_db')) localStorage.setItem('bakul_farmers_db', JSON.stringify(DEFAULT_FARMERS));
+            if(!localStorage.getItem('bakul_khad_data')) localStorage.setItem('bakul_khad_data', JSON.stringify(DEFAULT_KHAD));
+            if(!localStorage.getItem('bakul_beej_data')) localStorage.setItem('bakul_beej_data', JSON.stringify(DEFAULT_BEEJ));
+            if(!localStorage.getItem('bakul_liquid_data')) localStorage.setItem('bakul_liquid_data', JSON.stringify(DEFAULT_LIQUID));
+            
+            const today = new Date();
+            document.getElementById('current-live-date').innerText = today.toLocaleDateString('hi-IN');
+
+            loadReportData();
+            updateItemDropdown();
+            renderDownloadForms();
+            renderGallery();
+        }
+
+        function updateItemDropdown() {
+            let cat = document.getElementById('update-category').value;
+            let selectBox = document.getElementById('update-item-select');
+            let customInput = document.getElementById('update-item-custom');
+            
+            selectBox.innerHTML = "";
+            let storageKey = cat === 'khad' ? 'bakul_khad_data' : (cat === 'beej' ? 'bakul_beej_data' : 'bakul_liquid_data');
+            let list = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+            list.forEach(item => {
+                let opt = document.createElement('option');
+                opt.value = item.name;
+                opt.innerText = item.name;
+                selectBox.appendChild(opt);
+            });
+
+            let customOpt = document.createElement('option');
+            customOpt.value = "CUSTOM_NEW";
+            customOpt.innerText = "+ नया नाम जोड़ें...";
+            selectBox.appendChild(customOpt);
+
+            customInput.classList.add('hidden');
+        }
+
+        function checkCustomItemInput() {
+            let selectBox = document.getElementById('update-item-select');
+            let customInput = document.getElementById('update-item-custom');
+            if(selectBox.value === "CUSTOM_NEW") {
+                customInput.classList.remove('hidden');
+                customInput.value = "";
+                customInput.focus();
+            } else {
+                customInput.classList.add('hidden');
+            }
+        }
+
+        function loadReportData() {
+            let khadList = JSON.parse(localStorage.getItem('bakul_khad_data')) || DEFAULT_KHAD;
+            let beejList = JSON.parse(localStorage.getItem('bakul_beej_data')) || DEFAULT_BEEJ;
+            let liquidList = JSON.parse(localStorage.getItem('bakul_liquid_data')) || DEFAULT_LIQUID;
+
+            let kHtml = "";
+            let kPr=0, kBh=0, kYg=0, kVt=0, kSh=0;
+            khadList.forEach((item, idx) => {
+                let yog = Number(item.prarambhic) + Number(item.bhandaran);
+                let sesh = yog - Number(item.vitaran);
+                kPr += Number(item.prarambhic); kBh += Number(item.bhandaran); kYg += yog; kVt += Number(item.vitaran); kSh += sesh;
+                kHtml += `<tr><td class="p-3 border-r">${idx+1}</td><td class="p-3 border-r font-bold">${idx === 0 ? 'बाकुलवाही' : ''}</td><td class="p-3 border-r text-left font-bold text-emerald-900">${item.name}</td><td class="p-3 border-r">${item.prarambhic}</td><td class="p-3 border-r">${item.bhandaran}</td><td class="p-3 border-r font-bold">${yog.toFixed(3)}</td><td class="p-3 border-r">${item.vitaran}</td><td class="p-3 font-bold text-red-700">${sesh.toFixed(3)}</td></tr>`;
+            });
+            kHtml += `<tr class="bg-slate-50 font-black"><td class="p-3 border-r" colspan="3">योग</td><td class="p-3 border-r">${kPr.toFixed(2)}</td><td class="p-3 border-r">${kBh.toFixed(3)}</td><td class="p-3 border-r">${kYg.toFixed(3)}</td><td class="p-3 border-r">${kVt.toFixed(3)}</td><td class="p-3">${kSh.toFixed(3)}</td></tr>`;
+            document.getElementById('khad-tbody').innerHTML = kHtml;
+
+            let bHtml = "";
+            let bPr=0, bBh=0, bYg=0, bVt=0, bSh=0;
+            beejList.forEach((item, idx) => {
+                let yog = Number(item.prarambhic) + Number(item.bhandaran);
+                let sesh = yog - Number(item.vitaran);
+                bPr += Number(item.prarambhic); bBh += Number(item.bhandaran); bYg += yog; bVt += Number(item.vitaran); bSh += sesh;
+                bHtml += `<tr><td class="p-3 border-r">${idx+1}</td><td class="p-3 border-r font-bold">${idx === 0 ? 'बाकुलवाही' : ''}</td><td class="p-3 border-r text-left font-bold text-blue-900">${item.name}</td><td class="p-3 border-r">${item.prarambhic}</td><td class="p-3 border-r">${item.bhandaran}</td><td class="p-3 border-r font-bold">${yog.toFixed(2)}</td><td class="p-3 border-r">${item.vitaran}</td><td class="p-3 font-bold text-red-700">${sesh.toFixed(2)}</td></tr>`;
+            });
+            bHtml += `<tr class="bg-slate-50 font-black"><td class="p-3 border-r" colspan="3">योग</td><td class="p-3 border-r">${bPr.toFixed(2)}</td><td class="p-3 border-r">${bBh.toFixed(2)}</td><td class="p-3 border-r">${bYg.toFixed(2)}</td><td class="p-3 border-r">${bVt.toFixed(2)}</td><td class="p-3 text-red-700">${bSh.toFixed(2)}</td></tr>`;
+            document.getElementById('beej-tbody').innerHTML = bHtml;
+
+            let lHtml = "";
+            let lPr=0, lBh=0, lYg=0, lVt=0, lSh=0;
+            liquidList.forEach((item, idx) => {
+                let yog = Number(item.prarambhic) + Number(item.bhandaran);
+                let sesh = yog - Number(item.vitaran);
+                lPr += Number(item.prarambhic); lBh += Number(item.bhandaran); lYg += yog; lVt += Number(item.vitaran); lSh += sesh;
+                lHtml += `<tr><td class="p-3 border-r">${idx+1}</td><td class="p-3 border-r font-bold">${idx === 0 ? 'बाकुलवाही' : ''}</td><td class="p-3 border-r text-left font-bold text-amber-800">${item.name}</td><td class="p-3 border-r">${item.prarambhic}</td><td class="p-3 border-r">${item.bhandaran}</td><td class="p-3 border-r font-bold">${yog.toFixed(2)}</td><td class="p-3 border-r">${item.vitaran}</td><td class="p-3 font-bold text-red-700">${sesh.toFixed(2)}</td></tr>`;
+            });
+            lHtml += `<tr class="bg-slate-50 font-black"><td class="p-3 border-r" colspan="3">योग</td><td class="p-3 border-r">${lPr.toFixed(2)}</td><td class="p-3 border-r">${lBh.toFixed(2)}</td><td class="p-3 border-r">${lYg.toFixed(2)}</td><td class="p-3 border-r">${lVt.toFixed(2)}</td><td class="p-3">${lSh.toFixed(2)}</td></tr>`;
+            document.getElementById('liquid-tbody').innerHTML = lHtml;
+        }
+
+        function addNewOrUpdateReportItem() {
+            let cat = document.getElementById('update-category').value;
+            let selectBox = document.getElementById('update-item-select');
+            let name = selectBox.value;
+
+            if(name === "CUSTOM_NEW") {
+                name = document.getElementById('update-item-custom').value.trim();
+            }
+
+            let bhandaran = parseFloat(document.getElementById('update-bhandaran').value) || 0;
+            let vitaran = parseFloat(document.getElementById('update-vitaran').value) || 0;
+            let prarambhic = parseFloat(document.getElementById('update-prarambhic').value) || 0;
+
+            if(!name) { alert("⚠️ कृपया आइटम का नाम चुनें या लिखें!"); return; }
+
+            let storageKey = cat === 'khad' ? 'bakul_khad_data' : (cat === 'beej' ? 'bakul_beej_data' : 'bakul_liquid_data');
+            let list = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+            let found = list.find(item => item.name.toLowerCase() === name.toLowerCase());
+            if(found) {
+                found.bhandaran = bhandaran;
+                found.vitaran = vitaran;
+                found.prarambhic = prarambhic;
+            } else {
+                list.push({ name, prarambhic, bhandaran, vitaran });
+            }
+
+            localStorage.setItem(storageKey, JSON.stringify(list));
+            loadReportData();
+            updateItemDropdown();
+            
+            document.getElementById('update-bhandaran').value = "";
+            document.getElementById('update-vitaran').value = "";
+            document.getElementById('update-item-custom').value = "";
+            alert("✅ रिपोर्ट सफलतापूर्वक अपडेट कर दी गई है!");
+        }
+
+        function openLoginModal() { document.getElementById('loginModal').classList.remove('hidden'); }
+        function closeLoginModal() { document.getElementById('loginModal').classList.add('hidden'); }
+        function checkOfficeLogin() {
+            var u = document.getElementById('username').value;
+            var p = document.getElementById('password').value;
+            if(u === "BKL26" && p === "Lamps@123") {
+                document.getElementById('loginModal').classList.add('hidden');
+                document.getElementById('office-dashboard').classList.remove('hidden');
+                document.getElementById('office-dashboard').scrollIntoView({ behavior: 'smooth' });
+            } else { document.getElementById('login-error').classList.remove('hidden'); }
+        }
+        function logoutOffice() { document.getElementById('office-dashboard').classList.add('hidden'); window.scrollTo({top:0, behavior:'smooth'}); }
+
+        function searchFarmerData() {
+            var query = document.getElementById('search-input-box').value.trim().toLowerCase();
+            var resBox = document.getElementById('search-result-box');
+            if(!query) { resBox.classList.remove('hidden'); resBox.innerHTML = `<p class="text-red-600 font-bold text-xs">⚠️ नाम या कोड लिखें!</p>`; return; }
+            var db = JSON.parse(localStorage.getItem('bakul_farmers_db')) || DEFAULT_FARMERS;
+            var matched = db.filter(f => f.name.toLowerCase().includes(query) || f.code.toLowerCase().includes(query) || f.village.toLowerCase().includes(query));
+            resBox.classList.remove('hidden');
+            if(matched.length > 0) {
+                let h = `<div class="space-y-3"><h4 class="font-black text-slate-900">${matched.length} परिणाम मिले</h4>`;
+                matched.forEach(f => {
+                    h += `<div class="bg-slate-50 p-3 rounded-xl border flex justify-between items-center text-xs"><div><strong>${f.name}</strong> (${f.village})<br>कोड: ${f.code}</div><button onclick="alert('रकबा: ${f.totalLand} हेक्टे., बैंक: ${f.bank}')" class="bg-emerald-700 text-white px-3 py-1.5 rounded-lg">डिटेल</button></div>`;
+                });
+                resBox.innerHTML = h + `</div>`;
+            } else { resBox.innerHTML = `<p class="text-amber-600 font-bold text-xs">कोई रिकॉर्ड नहीं मिला।</p>`; }
+        }
+
+        // Improved PDF File Upload (Handles Storage Limits Safely)
+        function uploadNoticePdfFile() {
+            var title = document.getElementById('dash-notice-title').value.trim();
+            var fileInput = document.getElementById('dash-notice-file');
+            
+            if(!title || fileInput.files.length === 0) { 
+                alert("⚠️ कृपया फॉर्म का शीर्षक और PDF फाइल दोनों चुनें!"); 
+                return; 
+            }
+            
+            var file = fileInput.files[0];
+            if(file.type !== "application/pdf") {
+                alert("⚠️ कृपया केवल वैध PDF (.pdf) फाइल ही चुनें!");
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                let pdfList = JSON.parse(localStorage.getItem('bakul_pdf_list')) || [];
+                pdfList.push({ title: title, data: e.target.result });
+                
+                try {
+                    localStorage.setItem('bakul_pdf_list', JSON.stringify(pdfList));
+                    document.getElementById('dash-notice-title').value = "";
+                    fileInput.value = "";
+                    renderDownloadForms();
+                    alert("🎉 PDF फाइल सफलतापूर्वक अपलोड हो गई है!");
+                } catch (err) {
+                    alert("⚠️ फाइल का साइज़ बहुत बड़ा है! कृपया थोड़ी छोटी PDF फाइल अपलोड करें (या पुरानी PDF डिलीट करें)।");
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function renderDownloadForms() {
+            var container = document.getElementById('custom-forms-container');
+            var pdfList = JSON.parse(localStorage.getItem('bakul_pdf_list')) || [];
+            container.innerHTML = "";
+            
+            if(pdfList.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 col-span-3 text-center py-4">अभी कोई फॉर्म उपलब्ध नहीं है।</p>`;
+                return;
+            }
+
+            pdfList.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="bg-white border p-5 rounded-2xl text-xs shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="text-red-600 text-lg mb-2 flex justify-between items-center">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <button onclick="deletePdfItem(${index})" class="text-red-400 hover:text-red-700 text-xs font-bold" title="डिलीट करें"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <h4 class="font-black text-slate-900 text-sm">${item.title}</h4>
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <a href="${item.data}" download="${item.title}.pdf" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-xl shadow flex-1 text-center block"><i class="fa-solid fa-download mr-1"></i> डाउनलोड</a>
+                            <button onclick="viewPdf('${index}')" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-3 rounded-xl shadow text-center block"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function deletePdfItem(index) {
+            if(confirm("क्या आप वाकई इस PDF फॉर्म को हटाना चाहते हैं?")) {
+                let pdfList = JSON.parse(localStorage.getItem('bakul_pdf_list')) || [];
+                pdfList.splice(index, 1);
+                localStorage.setItem('bakul_pdf_list', JSON.stringify(pdfList));
+                renderDownloadForms();
+                alert("🗑️ PDF फॉर्म हटा दिया गया है।");
+            }
+        }
+
+        function viewPdf(index) {
+            var pdfList = JSON.parse(localStorage.getItem('bakul_pdf_list')) || [];
+            if(pdfList[index]) {
+                var pdfWindow = window.open("");
+                pdfWindow.document.write(
+                    `<iframe width='100%' height='100%' src='${pdfList[index].data}' style='border:none;'></iframe>`
+                );
+            }
+        }
+
+        function uploadNewGalleryImage() {
+            var title = document.getElementById('dash-gallery-title').value.trim();
+            var fileInput = document.getElementById('dash-gallery-img');
+            if(!title || fileInput.files.length === 0) { alert("⚠️ शीर्षक और फोटो चुनें!"); return; }
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                let gallery = JSON.parse(localStorage.getItem('bakul_gallery')) || [];
+                gallery.push({ title, img: e.target.result });
+                try {
+                    localStorage.setItem('bakul_gallery', JSON.stringify(gallery));
+                    renderGallery();
+                    document.getElementById('dash-gallery-title').value = "";
+                    fileInput.value = "";
+                    alert("🎉 गैलरी फोटो जुड़ गई!");
+                } catch(err) {
+                    alert("⚠️ फोटो का साइज़ बहुत बड़ा है, कृपया छोटी साइज की इमेज चुनें।");
+                }
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+
+        function renderGallery() {
+            var container = document.getElementById('dynamic-gallery-container');
+            var gallery = JSON.parse(localStorage.getItem('bakul_gallery')) || [];
+            container.innerHTML = "";
+            if(gallery.length === 0) { container.innerHTML = `<p class="text-xs text-slate-500 col-span-4 text-center py-4">कोई फोटो नहीं है।</p>`; return; }
+            gallery.forEach((item, idx) => {
+                container.innerHTML += `<div class="bg-slate-50 p-2 rounded-2xl border text-center shadow-sm relative"><button onclick="deleteGalleryItem(${idx})" class="absolute top-3 right-3 bg-red-600 text-white rounded-full w-6 h-6 text-[10px] shadow" title="डिलीट">×</button><div class="h-32 rounded-xl overflow-hidden bg-slate-100"><img src="${item.img}" class="w-full h-full object-cover"></div><p class="text-xs font-bold mt-2 text-slate-800">${item.title}</p></div>`;
+            });
+        }
+
+        function deleteGalleryItem(index) {
+            if(confirm("क्या आप इस फोटो को हटाना चाहते हैं?")) {
+                let gallery = JSON.parse(localStorage.getItem('bakul_gallery')) || [];
+                gallery.splice(index, 1);
+                localStorage.setItem('bakul_gallery', JSON.stringify(gallery));
+                renderGallery();
+            }
+        }
+    </script>
+</body>
+</html>
